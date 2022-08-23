@@ -1,5 +1,9 @@
 package mainApp.dao;
 
-public interface IGameDAO {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import mainApp.dto.Game;
+
+public interface IGameDAO extends JpaRepository<Game, Integer>{ 
 
 }

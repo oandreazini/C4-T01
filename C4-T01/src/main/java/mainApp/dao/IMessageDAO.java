@@ -1,5 +1,9 @@
 package mainApp.dao;
 
-public interface IMessageDAO {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import mainApp.dto.Message;
+
+public interface IMessageDAO extends JpaRepository<Message, Integer>{ 
 
 }
