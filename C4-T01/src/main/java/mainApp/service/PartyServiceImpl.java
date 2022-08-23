@@ -3,10 +3,12 @@ package mainApp.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import mainApp.dao.IPartyDAO;
 import mainApp.dto.Party;
 
+@Service
 public class PartyServiceImpl implements IPartyService {
 
 	// Utilizamos los metodos de la interface IPartyDAO, es como si instaciaramos.

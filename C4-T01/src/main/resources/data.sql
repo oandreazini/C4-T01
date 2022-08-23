@@ -1,5 +1,3 @@
-use heroku_0d3d9a2e88b6da5;
-
 DROP table IF EXISTS `messages`;
 DROP table IF EXISTS `partys`;
 DROP table IF EXISTS `videogames`;
@@ -13,6 +11,8 @@ CREATE TABLE `users` (
     PRIMARY KEY (`id`)
 );
 
+INSERT INTO `users` (`name`, `email`) VALUES ('Juan Pérez','juanp@gmail.com');
+
 CREATE TABLE `games` (
 	`id` int NOT NULL auto_increment,
     `name` nvarchar(25) NOT NULL,
@@ -22,6 +22,8 @@ CREATE TABLE `games` (
     PRIMARY KEY (`id`)
 );
 
+INSERT INTO `games` (`name`, `description`, `idusers`) VALUES ('Battles','batallas', '1');
+
 CREATE TABLE `videogames` (
 	`id` int NOT NULL auto_increment,
     `title` nvarchar(25) NOT NULL,
@@ -30,6 +32,8 @@ CREATE TABLE `videogames` (
     PRIMARY KEY (`id`)
 );
 
+INSERT INTO `videogames` (`title`, `idgames`) VALUES ('Game of the Throns', '1');
+
 CREATE TABLE `partys` (
 	`id` int NOT NULL auto_increment,
     `title` nvarchar(25) NOT NULL,
@@ -37,6 +41,8 @@ CREATE TABLE `partys` (
     CONSTRAINT `partys_fk_1` FOREIGN KEY (`idusers`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE, 
     PRIMARY KEY (`id`) 
 );
+
+INSERT INTO `partys` (`title`, `idusers`) VALUES ('Competiciones', '1');
 
 CREATE TABLE `messages` (
 	`id` int NOT NULL auto_increment,
@@ -48,3 +54,6 @@ CREATE TABLE `messages` (
     CONSTRAINT `messages_fk_2` FOREIGN KEY (`idusers`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
     PRIMARY KEY (`id`)
 );
+
+INSERT INTO `messages` (`shipping`, `text`, `idpartys`, `idusers`) VALUES ('2021-02-02', 'Buenas', '1', '1');
+
